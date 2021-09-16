@@ -1,0 +1,420 @@
+{
+  "settings": {
+    "languages": [
+      "pt"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "pt"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "pt": {
+        "settings": {
+          "locale": "pt",
+          "trainByDomain": false,
+          "tag": "domain-manager-pt",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "bom,dia": {
+            "intent": "saudacao",
+            "domain": "default"
+          },
+          "boa,tard": {
+            "intent": "saudacao",
+            "domain": "default"
+          },
+          "boa,noit": {
+            "intent": "saudacao",
+            "domain": "default"
+          },
+          "bom,tud": {
+            "intent": "saudacao",
+            "domain": "default"
+          },
+          "oi": {
+            "intent": "saudacao",
+            "domain": "default"
+          },
+          "ola": {
+            "intent": "saudacao",
+            "domain": "default"
+          },
+          "ae,fal": {
+            "intent": "saudacao",
+            "domain": "default"
+          },
+          "ei": {
+            "intent": "saudacao",
+            "domain": "default"
+          },
+          "salv": {
+            "intent": "saudacao",
+            "domain": "default"
+          },
+          "e,quem,vc": {
+            "intent": "conhecimento",
+            "domain": "default"
+          },
+          "lol": {
+            "intent": "conhecimento",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "saudacao": "default",
+          "conhecimento": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "bom dia",
+            "intent": "saudacao"
+          },
+          {
+            "domain": "default",
+            "utterance": "boa tarde",
+            "intent": "saudacao"
+          },
+          {
+            "domain": "default",
+            "utterance": "boa noite",
+            "intent": "saudacao"
+          },
+          {
+            "domain": "default",
+            "utterance": "tudo bom",
+            "intent": "saudacao"
+          },
+          {
+            "domain": "default",
+            "utterance": "oi",
+            "intent": "saudacao"
+          },
+          {
+            "domain": "default",
+            "utterance": "ola",
+            "intent": "saudacao"
+          },
+          {
+            "domain": "default",
+            "utterance": "fala ae",
+            "intent": "saudacao"
+          },
+          {
+            "domain": "default",
+            "utterance": "ei",
+            "intent": "saudacao"
+          },
+          {
+            "domain": "default",
+            "utterance": "salve",
+            "intent": "saudacao"
+          },
+          {
+            "domain": "default",
+            "utterance": "quem é vc?",
+            "intent": "conhecimento"
+          },
+          {
+            "domain": "default",
+            "utterance": "quem é vc?",
+            "intent": "conhecimento"
+          },
+          {
+            "domain": "default",
+            "utterance": "Lola?",
+            "intent": "conhecimento"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "pt",
+              "tag": "nlu-pt",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "bom": 1,
+              "dia": 1,
+              "boa": 1,
+              "tard": 1,
+              "noit": 1,
+              "tud": 1,
+              "oi": 1,
+              "ola": 1,
+              "fal": 1,
+              "ae": 1,
+              "ei": 1,
+              "salv": 1,
+              "quem": 1,
+              "e": 1,
+              "vc": 1,
+              "lol": 1
+            },
+            "intents": {
+              "saudacao": 1,
+              "conhecimento": 1
+            },
+            "intentFeatures": {
+              "saudacao": {
+                "bom": 1,
+                "dia": 1,
+                "boa": 1,
+                "tard": 1,
+                "noit": 1,
+                "tud": 1,
+                "oi": 1,
+                "ola": 1,
+                "fal": 1,
+                "ae": 1,
+                "ei": 1,
+                "salv": 1
+              },
+              "conhecimento": {
+                "quem": 1,
+                "e": 1,
+                "vc": 1,
+                "lol": 1
+              }
+            },
+            "featuresToIntent": {
+              "bom": [
+                "saudacao"
+              ],
+              "dia": [
+                "saudacao"
+              ],
+              "boa": [
+                "saudacao"
+              ],
+              "tard": [
+                "saudacao"
+              ],
+              "noit": [
+                "saudacao"
+              ],
+              "tud": [
+                "saudacao"
+              ],
+              "oi": [
+                "saudacao"
+              ],
+              "ola": [
+                "saudacao"
+              ],
+              "fal": [
+                "saudacao"
+              ],
+              "ae": [
+                "saudacao"
+              ],
+              "ei": [
+                "saudacao"
+              ],
+              "salv": [
+                "saudacao"
+              ],
+              "quem": [
+                "conhecimento"
+              ],
+              "e": [
+                "conhecimento"
+              ],
+              "vc": [
+                "conhecimento"
+              ],
+              "lol": [
+                "conhecimento"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "pt",
+                "tag": "nlu-pt",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "bom",
+                "dia",
+                "boa",
+                "tard",
+                "noit",
+                "tud",
+                "oi",
+                "ola",
+                "fal",
+                "ae",
+                "ei",
+                "salv",
+                "quem",
+                "e",
+                "vc",
+                "lol"
+              ],
+              "intents": [
+                "saudacao",
+                "conhecimento"
+              ],
+              "perceptrons": [
+                [
+                  3.4693548679351807,
+                  1.7225743532180786,
+                  3.4693381786346436,
+                  1.7363251447677612,
+                  1.7334688901901245,
+                  1.7467877864837646,
+                  5.15504264831543,
+                  5.139520168304443,
+                  2.5999374389648438,
+                  2.5999374389648438,
+                  5.1197896003723145,
+                  5.101873874664307,
+                  -3.0379297733306885,
+                  -3.0379297733306885,
+                  -3.0379297733306885,
+                  -8.848862648010254,
+                  9.084901564884197
+                ],
+                [
+                  -1.407065510749817,
+                  -0.7227065563201904,
+                  -1.4018194675445557,
+                  -0.7115607261657715,
+                  -0.6893962621688843,
+                  -0.6829908490180969,
+                  -2.023792028427124,
+                  -2.013458728790283,
+                  -1.0360475778579712,
+                  -1.0360475778579712,
+                  -1.9998672008514404,
+                  -1.9885653257369995,
+                  4.0734639167785645,
+                  4.0734639167785645,
+                  4.0734639167785645,
+                  11.954471588134766,
+                  2.0779847088070484
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "pt",
+        "bom dia"
+      ],
+      [
+        "pt",
+        "boa tarde"
+      ],
+      [
+        "pt",
+        "boa noite"
+      ],
+      [
+        "pt",
+        "tudo bom"
+      ],
+      [
+        "pt",
+        "oi"
+      ],
+      [
+        "pt",
+        "ola"
+      ],
+      [
+        "pt",
+        "fala ae"
+      ],
+      [
+        "pt",
+        "ei"
+      ],
+      [
+        "pt",
+        "salve"
+      ],
+      [
+        "pt",
+        "quem é vc?"
+      ],
+      [
+        "pt",
+        "quem é vc?"
+      ],
+      [
+        "pt",
+        "Lola?"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "pt": {
+        "saudacao": [
+          {
+            "answer": "Oi, me chamo Lola, sou uma atendente virtual em fase de desenvolvimento!"
+          }
+        ],
+        "conhecimento": [
+          {
+            "answer": "Me chamo Lola, sua atendente virtual em fase de teste!"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

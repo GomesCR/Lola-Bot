@@ -16,39 +16,40 @@ manager.addDocument('pt', 'fala ae', 'saudacao');
 manager.addDocument('pt', 'ei', 'saudacao');
 manager.addDocument('pt', 'salve', 'saudacao');
 
+manager.addDocument('pt', 'quem é vc?', 'conhecimento');
+manager.addDocument('pt', 'quem é vc?', 'conhecimento');
+manager.addDocument('pt', 'Lola?', 'conhecimento');
+
 
 // Train also the NLG
-manager.addAnswer('pt', 'greetings.bye', 'Till next time');
-manager.addAnswer('pt', 'greetings.bye', 'see you soon!');
-manager.addAnswer('pt', 'greetings.hello', 'Hey there!');
-manager.addAnswer('pt', 'greetings.hello', 'Greetings!');
+manager.addAnswer('pt', 'saudacao', 'Oi, me chamo Lola, sou uma atendente virtual em fase de desenvolvimento!');
+manager.addAnswer('pt', 'conhecimento', 'Me chamo Lola, sua atendente virtual em fase de teste!');
 
 // Train and save the model.
 (async() => {
-    await manager.train();
-    manager.save();
-    const response = await manager.process('pt', 'I should go now');
-    console.log(response);
-})();
-
+    await manager.train()
+    manager.save()
 
   create('LolaBot')
   .then((client) => {
-
-    client.onMessage((message) => {
+    client.onMessage(async(message) => {
       if (message.isGroupMsg === false) {
-        switch (message.body.toLowerCase()) {
-          case "bom dia":
-            client.sendText(message.from,"Olá, bom dia!")
-            break
-
-          default:
-            break
+        const response = await manager.process('pt', message.body.toLowerCase())
+        if (response.intent === "None") {
+          client.sendText(message.from, 'Desculpa, mas eu não entendi o que você quis dizer! Ainda estou apredendo sobre o seu mundo.')
+        } else {
+        console.log(response)
+        client.sendText(message.from, response.answer)
         }
       }
     })
 
   })
   .catch((erro) => {
-    console.log(erro);
-  });
+    console.log(erro)
+  })
+
+})()
+
+
+
